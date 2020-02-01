@@ -1,7 +1,9 @@
-package main
+package middleware
 
 import (
 	"errors"
+
+	"../models"
 
 	"github.com/gomodule/redigo/redis"
 )
@@ -10,12 +12,7 @@ var pool *redis.Pool
 
 var ErrNoMessage = errors.New("no message found")
 
-type Message struct {
-	Key  string `redis:"key"`
-	Body string `redis:"body"`
-}
-
-func FindMessage(key string) (*Message, error) {
+func FindMessage(key string) (*models.Message, error) {
 	conn := pool.Get()
 
 	defer conn.Close()
@@ -27,7 +24,7 @@ func FindMessage(key string) (*Message, error) {
 		return nil, ErrNoMessage
 	}
 
-	var message Message
+	var message models.Message
 	err = redis.ScanStruct(values, &message)
 	if err != nil {
 		return nil, err
