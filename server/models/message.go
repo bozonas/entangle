@@ -1,6 +1,6 @@
 package models
 
 type Message struct {
-	Key  string `redis:"key"`
-	Body string `redis:"body"`
+	Key        string `json:"key"`
+	Ciphertext string `json:"ciphertext"`
 }

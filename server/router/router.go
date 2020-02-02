@@ -1,20 +1,24 @@
-package entangle
+package router
 
 import (
+	"net/http"
+
 	"../middleware"
 	"github.com/gorilla/mux"
 )
 
-func Router() {
+func Router() *mux.Router {
+
+	buildHandler := http.FileServer(http.Dir("./client/build"))
+	staticHandler := http.StripPrefix("/static/", http.FileServer(http.Dir("./client/build/static")))
 
 	router := mux.NewRouter()
 
-	router.HandleFunc("/posts", middleware.GetPosts).Methods("GET")
-	router.HandleFunc("/posts", middleware.createPost).Methods("POST")
-	router.HandleFunc("/posts/{id}", middleware.getPost).Methods("GET")
-	router.HandleFunc("/posts/{id}", middleware.updatePost).Methods("PUT")
-	router.HandleFunc("/posts/{id}", middleware.deletePost).Methods("DELETE")
+	router.HandleFunc("/api/message", middleware.SaveMessage).Methods("POST")
+	router.HandleFunc("/api/message/{key}", middleware.GetMessage).Methods("GET")
 
-	router.HandleFunc("/message", middleware.saveMessage).Methods("POST")
-	router.HandleFunc("/message", middleware.getMessage).Methods("GET")
+	router.PathPrefix("/").Handler(buildHandler)
+	router.PathPrefix("/static/").Handler(staticHandler)
+
+	return router
 }

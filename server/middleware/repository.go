@@ -2,6 +2,8 @@ package middleware
 
 import (
 	"errors"
+	"log"
+	"time"
 
 	"../models"
 
@@ -12,23 +14,47 @@ var pool *redis.Pool
 
 var ErrNoMessage = errors.New("no message found")
 
-func FindMessage(key string) (*models.Message, error) {
-	conn := pool.Get()
+func init() {
+	pool = &redis.Pool{
+		MaxIdle:     10,
+		IdleTimeout: 240 * time.Second,
+		Dial: func() (redis.Conn, error) {
+			return redis.Dial("tcp",
+				"XXXXX",
+				redis.DialPassword("XXXXXXX"))
+		},
+	}
+}
 
+func SetMessage(message *models.Message) error {
+	conn := pool.Get()
 	defer conn.Close()
 
-	values, err := redis.Values(conn.Do("HGETALL", "message:"+key))
-	if err != nil {
-		return nil, err
-	} else if len(values) == 0 {
-		return nil, ErrNoMessage
+	// set expiry for 1 hour
+	if _, err := conn.Do("SETEX", message.Key, 3600, message.Ciphertext); err != nil {
+		log.Fatal(err)
 	}
 
-	var message models.Message
-	err = redis.ScanStruct(values, &message)
+	return nil
+}
+
+func FindMessage(key string) (*models.Message, error) {
+	conn := pool.Get()
+	defer conn.Close()
+
+	str, err := redis.String(conn.Do("GET", key))
 	if err != nil {
-		return nil, err
+		log.Fatal(err)
 	}
 
-	return &message, nil
+	if _, err := conn.Do("DEL", key); err != nil {
+		log.Fatal(err)
+	}
+
+	message := &models.Message{
+		Key:        key,
+		Ciphertext: str,
+	}
+
+	return message, nil
 }
