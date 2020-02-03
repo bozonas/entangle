@@ -1,8 +1,12 @@
 package middleware
 
 import (
+	"encoding/json"
 	"errors"
+	"flag"
+	"fmt"
 	"log"
+	"os"
 	"time"
 
 	"../models"
@@ -14,14 +18,28 @@ var pool *redis.Pool
 
 var ErrNoMessage = errors.New("no message found")
 
+var filename = flag.String("config", "config.json", "Location of the config file.")
+
+type Configuration struct {
+	RedisUrl      string
+	RedisPassword string
+}
+
 func init() {
+	flag.Parse()
+	file, _ := os.Open(*filename)
+	fmt.Println(*filename)
+	var configuration Configuration
+	decoder := json.NewDecoder(file)
+	decoder.Decode(&configuration)
+
 	pool = &redis.Pool{
 		MaxIdle:     10,
 		IdleTimeout: 240 * time.Second,
 		Dial: func() (redis.Conn, error) {
 			return redis.Dial("tcp",
-				"XXXXX",
-				redis.DialPassword("XXXXXXX"))
+				configuration.RedisUrl,
+				redis.DialPassword(configuration.RedisPassword))
 		},
 	}
 }
