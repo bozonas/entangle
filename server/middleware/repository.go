@@ -4,7 +4,6 @@ import (
 	"encoding/json"
 	"errors"
 	"flag"
-	"fmt"
 	"log"
 	"os"
 	"time"
@@ -28,7 +27,6 @@ type Configuration struct {
 func init() {
 	flag.Parse()
 	file, _ := os.Open(*filename)
-	fmt.Println(*filename)
 	var configuration Configuration
 	decoder := json.NewDecoder(file)
 	decoder.Decode(&configuration)
@@ -62,7 +60,8 @@ func FindMessage(key string) (*models.Message, error) {
 
 	str, err := redis.String(conn.Do("GET", key))
 	if err != nil {
-		log.Fatal(err)
+		log.Print(err)
+		return nil, ErrNoMessage
 	}
 
 	if _, err := conn.Do("DEL", key); err != nil {

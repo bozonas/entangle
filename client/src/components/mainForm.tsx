@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { Form, Button, Grid, Transition, Input, Segment, Dimmer, Loader } from "semantic-ui-react";
+import { Form, Button, Grid, Transition, Input, Dimmer, Loader } from "semantic-ui-react";
 import { SemanticToastContainer, toast } from 'react-semantic-toasts';
 import { useForm } from "react-hook-form";
 import crypto from 'crypto-js';
 import axios from 'axios';
+import { API_URL } from '../constants';
 
 function getRandomString(length) {
   var randomChars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
@@ -21,7 +22,7 @@ interface Request {
 
 interface Response { }
 
-const MainForm = () => {
+const MainForm = (props) => {
   useEffect(() => {
     register({ name: "secret" }, { required: true });
   }, []);
@@ -35,7 +36,7 @@ const MainForm = () => {
     setLoading(true);
     const key: string = getRandomString(10);
     const pass: string = getRandomString(20);
-    const ciphertext = crypto.AES.encrypt(JSON.stringify(data), pass).toString();
+    const ciphertext = crypto.AES.encrypt(data.secret, pass).toString();
 
     const request: Request = {
       key: key,
@@ -43,13 +44,13 @@ const MainForm = () => {
     }
     let response: Response
     try {
-      response = await axios.post<Request, Response>('http://localhost:8080/api/message', request);
+      response = await axios.post<Request, Response>(`${API_URL}/message`, request);
       console.log(response);
       setUrl(`${window.location.href}${key}-${pass}`);
       setVisibility({ form: false, copy: false });
       setTimeout(function(){ setVisibility({ form: false, copy: true }); }, 500);
     } catch (e) {
-      console.log(e); // show an error
+      props.history.push('/errorPage');
     }
     setLoading(false);
   }
