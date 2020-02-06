@@ -1,1 +1,1 @@
-web: ls bin/ && bin/main.exe
+web: ls bin/ && bin/entangle
