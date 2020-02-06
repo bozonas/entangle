@@ -5,7 +5,7 @@ import (
 	"log"
 	"net/http"
 
-	"./router"
+	"entangle/router"
 )
 
 func main() {
