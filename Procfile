@@ -1,1 +1,1 @@
-web: bin/main.exe
+web: ls && bin/main.exe
