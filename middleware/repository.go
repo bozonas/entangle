@@ -36,8 +36,8 @@ func init() {
 		IdleTimeout: 240 * time.Second,
 		Dial: func() (redis.Conn, error) {
 			return redis.Dial("tcp",
-				configuration.RedisUrl,
-				redis.DialPassword(configuration.RedisPassword))
+				"redis-13701.c98.us-east-1-4.ec2.cloud.redislabs.com:13701",
+				redis.DialPassword("dq4UvSdmacMaQ0iEVkAaWb3gEPNw7qJI"))
 		},
 	}
 }
