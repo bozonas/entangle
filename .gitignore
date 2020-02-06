@@ -40,3 +40,4 @@ yarn.lock
 
 *.exe
 config.json
+!./client/build
