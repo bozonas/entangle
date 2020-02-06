@@ -1,1 +1,1 @@
-web: bin\entangle.exe
+web: bin/entangle.exe
