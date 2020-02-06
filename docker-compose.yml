@@ -1,0 +1,49 @@
+version: '3'
+services:
+  # web:
+    
+  api:
+    image: golang
+    volumes:
+      - .:/entangle
+    working_dir: /entangle
+    command: go run main.go
+    links:
+      - redis
+    environment:
+      REDIS_URL: redis:6379
+    # environment:
+      # - NODE_ENV=production
+      # - RHOST=redis
+    # networks:
+      # - redis-net
+    # depends_on:
+      # - redis
+
+  redis:
+    image: "redis:alpine"
+
+  # redis:
+    # image: redis:alpine
+    # command: ["redis-server", "--appendonly", "yes"]
+    # hostname: redis
+    # networks:
+      # - redis-net
+    # volumes:
+      # - redis-data:/data
+
+# networks:
+  # redis-net:
+
+# volumes:
+  # redis-data:
+
+https://www.alexedwards.net/blog/working-with-redis
+  
+docker run --name some-redis -d redis
+docker run -d -p 6379:6379 --name redis1 redis
+docker run --name redis-test-instance -p 6379:6379 -d redis
+docker logs redis1
+docker exec -it redis1 sh
+redis-cli
+rdcli
