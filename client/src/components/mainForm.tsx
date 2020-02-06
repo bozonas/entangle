@@ -56,7 +56,12 @@ const MainForm = (props) => {
   }
 
   const onIconCopy = () => {
-    navigator.clipboard.writeText(url);
+    const el = document.createElement('textarea');
+    el.value = url;
+    document.body.appendChild(el);
+    el.select();
+    document.execCommand('copy');
+    document.body.removeChild(el);
     toast({
       type: 'success',
       icon: 'copy',
