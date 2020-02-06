@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "7077e288bc1944e410c6f719ce42b585",
+    "revision": "171ba3fd2cdc7b271af3dcc38ebe852c",
     "url": "/entangle/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/entangle/static/css/2.bcfe5bc8.chunk.css"
   },
   {
-    "revision": "f37d526398edf92d9e58",
+    "revision": "90c14ca423356268088d",
     "url": "/entangle/static/css/main.d319a70d.chunk.css"
   },
   {
@@ -20,8 +20,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/entangle/static/js/2.027d9e8f.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "f37d526398edf92d9e58",
-    "url": "/entangle/static/js/main.98826277.chunk.js"
+    "revision": "90c14ca423356268088d",
+    "url": "/entangle/static/js/main.7258d429.chunk.js"
   },
   {
     "revision": "c6164c3e30a143dd24d3",
