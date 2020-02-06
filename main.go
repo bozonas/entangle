@@ -4,14 +4,15 @@ import (
 	"fmt"
 	"log"
 	"net/http"
+	"os"
 
-	"./router"
+	"entangle/router"
 )
 
 func main() {
 	r := router.Router()
 
-	fmt.Println("Starting server on the port 8080...")
-
-	log.Fatal(http.ListenAndServe(":8080", r))
+	port := os.Getenv("PORT")
+	fmt.Println("Starting server on the port " + port)
+	log.Fatal(http.ListenAndServe(":"+port, r))
 }

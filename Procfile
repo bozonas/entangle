@@ -1,1 +1,1 @@
-web: bin\entangle.exe -config=D:\PROJEKTAI\entangle\server\config.json
+web: bin/entangle

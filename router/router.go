@@ -3,7 +3,7 @@ package router
 import (
 	"net/http"
 
-	"../middleware"
+	"entangle/middleware"
 	"github.com/gorilla/handlers"
 	"github.com/gorilla/mux"
 )

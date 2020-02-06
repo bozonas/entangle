@@ -8,7 +8,7 @@ import (
 	"os"
 	"time"
 
-	"../models"
+	"entangle/models"
 
 	"github.com/gomodule/redigo/redis"
 )
