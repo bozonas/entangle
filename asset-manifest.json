@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.css": "/entangle/static/css/main.d319a70d.chunk.css",
+    "main.js": "/entangle/static/js/main.98826277.chunk.js",
+    "main.js.map": "/entangle/static/js/main.98826277.chunk.js.map",
+    "runtime-main.js": "/entangle/static/js/runtime-main.4f08592b.js",
+    "runtime-main.js.map": "/entangle/static/js/runtime-main.4f08592b.js.map",
+    "static/css/2.bcfe5bc8.chunk.css": "/entangle/static/css/2.bcfe5bc8.chunk.css",
+    "static/js/2.027d9e8f.chunk.js": "/entangle/static/js/2.027d9e8f.chunk.js",
+    "static/js/2.027d9e8f.chunk.js.map": "/entangle/static/js/2.027d9e8f.chunk.js.map",
+    "index.html": "/entangle/index.html",
+    "precache-manifest.b92055c881b9e1281457a04a3f074112.js": "/entangle/precache-manifest.b92055c881b9e1281457a04a3f074112.js",
+    "service-worker.js": "/entangle/service-worker.js",
+    "static/css/2.bcfe5bc8.chunk.css.map": "/entangle/static/css/2.bcfe5bc8.chunk.css.map",
+    "static/css/main.d319a70d.chunk.css.map": "/entangle/static/css/main.d319a70d.chunk.css.map",
+    "static/js/2.027d9e8f.chunk.js.LICENSE.txt": "/entangle/static/js/2.027d9e8f.chunk.js.LICENSE.txt",
+    "static/media/semantic.min.css": "/entangle/static/media/outline-icons.ef60a4f6.woff",
+    "static/media/logo.svg": "/entangle/static/media/logo.5d5d9eef.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.4f08592b.js",
+    "static/css/2.bcfe5bc8.chunk.css",
+    "static/js/2.027d9e8f.chunk.js",
+    "static/css/main.d319a70d.chunk.css",
+    "static/js/main.98826277.chunk.js"
+  ]
+}
