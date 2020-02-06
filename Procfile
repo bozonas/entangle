@@ -1,1 +1,1 @@
-web: ls bin/ && bin/entangle
+web: bin/entangle -config=-

@@ -26,10 +26,17 @@ type Configuration struct {
 
 func init() {
 	flag.Parse()
-	file, _ := os.Open(*filename)
 	var configuration Configuration
-	decoder := json.NewDecoder(file)
-	decoder.Decode(&configuration)
+	if *filename == "-" {
+		configuration = Configuration{
+			RedisUrl:      os.Getenv("PORT"),
+			RedisPassword: os.Getenv("PORT"),
+		}
+	} else {
+		file, _ := os.Open(*filename)
+		decoder := json.NewDecoder(file)
+		decoder.Decode(&configuration)
+	}
 
 	pool = &redis.Pool{
 		MaxIdle:     10,
