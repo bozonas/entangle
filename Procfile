@@ -1,1 +1,1 @@
-web: bin/entangle
+web: bin/entangle -config=-
