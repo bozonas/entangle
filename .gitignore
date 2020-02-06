@@ -40,5 +40,5 @@ yarn.lock
 
 *.exe
 config.json
-
+!client/build
 vendor/github.com/
