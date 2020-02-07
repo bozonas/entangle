@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "171ba3fd2cdc7b271af3dcc38ebe852c",
+    "revision": "c12f6001eeae4c05281836700ef6cb55",
     "url": "/entangle/index.html"
   },
   {
