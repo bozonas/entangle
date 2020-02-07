@@ -1,27 +1,27 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "c12f6001eeae4c05281836700ef6cb55",
+    "revision": "547c91984282c2f6a2617063fee76ec9",
     "url": "/entangle/index.html"
   },
   {
-    "revision": "e93336deba81ccd03bd5",
+    "revision": "feda1fd0ffd57ed0ac3e",
     "url": "/entangle/static/css/2.bcfe5bc8.chunk.css"
   },
   {
-    "revision": "90c14ca423356268088d",
+    "revision": "37c64dd807a2f8b9ccb1",
     "url": "/entangle/static/css/main.d319a70d.chunk.css"
   },
   {
-    "revision": "e93336deba81ccd03bd5",
-    "url": "/entangle/static/js/2.027d9e8f.chunk.js"
+    "revision": "feda1fd0ffd57ed0ac3e",
+    "url": "/entangle/static/js/2.d941215d.chunk.js"
   },
   {
     "revision": "a1995f9ea499cb0647717e076f65b9f5",
-    "url": "/entangle/static/js/2.027d9e8f.chunk.js.LICENSE.txt"
+    "url": "/entangle/static/js/2.d941215d.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "90c14ca423356268088d",
-    "url": "/entangle/static/js/main.7258d429.chunk.js"
+    "revision": "37c64dd807a2f8b9ccb1",
+    "url": "/entangle/static/js/main.e3874f18.chunk.js"
   },
   {
     "revision": "c6164c3e30a143dd24d3",
