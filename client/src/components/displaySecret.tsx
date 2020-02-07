@@ -18,7 +18,7 @@ const DisplaySecret = (props) => {
             setData(secret);
             setLoading(false);
         }).catch(err => {
-            props.history.push('/notFound');
+            props.history.push(`${process.env.PUBLIC_URL}/notFound`);
         });
     }, []);
     return (
