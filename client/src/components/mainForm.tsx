@@ -50,18 +50,13 @@ const MainForm = (props) => {
       setVisibility({ form: false, copy: false });
       setTimeout(function(){ setVisibility({ form: false, copy: true }); }, 500);
     } catch (e) {
-      props.history.push('/errorPage');
+      props.history.push(`${process.env.PUBLIC_URL}/errorPage`);
     }
     setLoading(false);
   }
 
   const onIconCopy = () => {
-    const el = document.createElement('textarea');
-    el.value = url;
-    document.body.appendChild(el);
-    el.select();
-    document.execCommand('copy');
-    document.body.removeChild(el);
+    navigator.clipboard.writeText(url);
     toast({
       type: 'success',
       icon: 'copy',
