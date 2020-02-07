@@ -40,5 +40,4 @@ yarn.lock
 
 *.exe
 config.json
-
 vendor/github.com/
