@@ -50,7 +50,7 @@ const MainForm = (props) => {
       setVisibility({ form: false, copy: false });
       setTimeout(function(){ setVisibility({ form: false, copy: true }); }, 500);
     } catch (e) {
-      props.history.push(`${process.env.PUBLIC_URL}/errorPage`);
+      props.history.push(`/errorPage`);
     }
     setLoading(false);
   }
