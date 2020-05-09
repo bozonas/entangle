@@ -45,7 +45,6 @@ const MainForm = (props) => {
     let response: Response
     try {
       response = await axios.post<Request, Response>(`${API_URL}/message`, request);
-      console.log(response);
       setUrl(`${window.location.href}${key}-${pass}`);
       setVisibility({ form: false, copy: false });
       setTimeout(function(){ setVisibility({ form: false, copy: true }); }, 500);
